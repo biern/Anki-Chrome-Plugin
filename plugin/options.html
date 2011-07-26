@@ -1,0 +1,20 @@
+<html>
+  <head><title>Configure Anki Add Card</title></head>
+  <script type="text/javascript" src="options.js"></script>
+  <body onload="restore_options()">
+    <div id="status"></div>
+    <div>
+      <input type="checkbox" name="prompt" id="prompt_id"/>
+      <label for="prompt_id">
+        Prompt for back of the card
+      </label>
+    </div>
+    <div>
+      <input type="checkbox" name="confirm" id="confirm_id"/>
+      <label for="confirm_id">
+        Show confirmation after adding
+      </label>
+    </div>
+    <button onclick="save_options()">Save</button>
+  </body>
+</html>

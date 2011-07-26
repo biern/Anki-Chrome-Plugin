@@ -1,0 +1,17 @@
+{
+  "name": "Anki Add Card",
+  "version": "1.0",
+  "description": "Adds a menu item allowing to add selected text as a new Anki card.",
+  "background_page": "background.html",
+  "options_page": "options.html",
+  "permissions": [
+      "contextMenus",
+      "http://ankiweb.net/deck/edit"
+  ],
+  "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"]
+    }
+  ]
+}
