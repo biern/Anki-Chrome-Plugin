@@ -4,10 +4,13 @@
   <body onload="restore_options()">
     <div id="status"></div>
     <div>
-      <input type="checkbox" name="prompt" id="prompt_id"/>
-      <label for="prompt_id">
-        Prompt for back of the card
+      <label for="source_id">
+        Source of the back side of the card:
       </label>
+      <select name="source" id="source_id">
+        <option value="null">Null</option>
+        <option value="prompt">Prompt</option>
+      </select>
     </div>
     <div>
       <input type="checkbox" name="confirm" id="confirm_id"/>

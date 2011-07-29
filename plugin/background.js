@@ -1,7 +1,7 @@
 // Set default options
 var options = {
     confirm: false,
-    prompt: true
+    source: "prompt"
 };
 
 for (var key in options) {
@@ -20,7 +20,7 @@ var item = chrome.contextMenus.create({
 function handleClick(info, tab) {
     chrome.tabs.sendRequest(tab.id, {
         action: "cardAdd",
-        promptForBack: localStorage["prompt"] == "true"
+        promptForBack: localStorage["source"] == "prompt"
     }, function(response){
         addCard(tab, response.card);
     });
