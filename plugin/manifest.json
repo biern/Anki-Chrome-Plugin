@@ -2,11 +2,13 @@
   "name": "Anki Add Card",
   "version": "1.0",
   "description": "Adds a menu item allowing to add selected text as a new Anki card.",
+  "update_url": "https://raw.github.com/biern/Anki-Chrome-Plugin/master/updates.xml",
   "background_page": "background.html",
   "options_page": "options.html",
   "permissions": [
       "contextMenus",
-      "http://ankiweb.net/deck/edit"
+      "http://ankiweb.net/deck/edit",
+      "http://services.aonaware.com/DictService/"
   ],
   "content_scripts": [
     {

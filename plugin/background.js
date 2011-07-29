@@ -22,8 +22,31 @@ function handleClick(info, tab) {
         action: "cardAdd",
         promptForBack: localStorage["source"] == "prompt"
     }, function(response){
-        addCard(tab, response.card);
+        if (localStorage["source"] == "definition") {
+            addCardDefinition(tab, response.card);
+        } else {
+            addCard(tab, response.card);
+        }
     });
+}
+
+function addCardDefinition(tab, card) {
+   var xhr = new XMLHttpRequest(),
+       url = "http://services.aonaware.com/DictService/DictService.asmx/Define?word=" + card.front;
+
+    xhr.open("GET", url);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var text = this.responseText.match(/<WordDefinition>\s*([\s\S]*?)\s*<\/WordDefinition>/)[1];
+
+            card.back = text;
+            addCard(tab, card);
+        } else if (this.readyState == 4 && this.status != 200) {
+            alert("Error while looking up for word's definition: "
+                  + "\nstatus: " + this.status);
+        }
+    };
+    xhr.send();
 }
 
 
